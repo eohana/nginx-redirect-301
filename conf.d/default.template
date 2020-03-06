@@ -2,7 +2,9 @@ server {
     listen       80;
     server_name  localhost;
 
+    server_tokens off;
+
     location / {
-      return 301 ${REDIRECT_URL};
+      rewrite ^/(.*)$ ${REDIRECT_URL} permanent;
     }
 }
